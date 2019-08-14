@@ -1,0 +1,83 @@
+allprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'maven'
+    apply plugin: 'eclipse'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: "io.franzbecker.gradle-lombok"
+
+    group = 'com.ler.two'
+    version = '0.0.1-SNAPSHOT'
+
+    sourceCompatibility = '1.8'
+
+    jar.enabled = true
+
+    configurations {
+        developmentOnly
+        runtimeClasspath {
+            extendsFrom developmentOnly
+        }
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    ext {
+        set('snippetsDir', file("build/generated-snippets"))
+    }
+
+    dependencies {
+        //所有依赖
+    }
+}
+
+buildscript {
+    ext {
+        springBootVersion = '2.0.2.RELEASE'
+    }
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "io.franzbecker:gradle-lombok:1.14"
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'mysql:mysql-connector-java'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+
+    compile('org.springframework.boot:spring-boot-starter-aop')
+
+    compile("com.baomidou:mybatis-plus-boot-starter:3.0.4")
+    compile group: 'org.freemarker', name: 'freemarker', version: '2.3.28'
+    compile "mysql:mysql-connector-java:8.0.16"
+    compile "com.alibaba:druid-spring-boot-starter:1.1.10"
+
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.55'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
+
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+
+}
+
+
+
