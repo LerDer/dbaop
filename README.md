@@ -5,8 +5,8 @@ mybatis-plus多数据源，aop多事务项目
 
 #### 软件架构
 软件架构说明
-SpringBoot  2.0.2.RELEASE
-Mybatis-Plus  3.0.4
+- SpringBoot  2.0.2.RELEASE
+- Mybatis-Plus  3.0.4
 
 #### 使用说明
 
