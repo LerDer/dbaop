@@ -5,18 +5,13 @@ mybatis-plus多数据源，aop多事务项目
 
 #### Software Architecture
 Software architecture description
-
-#### Installation
-
-1. xxxx
-2. xxxx
-3. xxxx
+SpringBoot  2.0.2.RELEASE
+Mybatis-Plus  3.0.4
 
 #### Instructions
 
-1. xxxx
-2. xxxx
-3. xxxx
+1. multipart datasource, dynamic change with service call
+2. multipart transaction manager
 
 #### Contribution
 
